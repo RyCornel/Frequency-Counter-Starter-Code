@@ -5,7 +5,7 @@ class HashTable:
   def __init__(self, size):
     self.size = size
     self.arr = self.create_arr(size)
-
+  
 
   # 1️⃣ TODO: Complete the create_arr method.
 
