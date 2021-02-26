@@ -14,7 +14,8 @@ class HashTable:
 
   def create_arr(self, size):
      
-    pass
+    self.arr = []
+    
 
 
 
