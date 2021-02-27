@@ -14,8 +14,14 @@ class HashTable:
 
   def create_arr(self, size):
      
-    self.arr = []
-    
+    arr = []
+
+    for i in range(size):
+      a_new_list = LinkedList()
+      arr.append(a_new_list)
+
+    return arr 
+
 
 
 
