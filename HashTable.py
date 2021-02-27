@@ -74,6 +74,16 @@ class HashTable:
   # blooms: 1
   # erase: 2
 
-  
+  def print_key_values(self):
+    
+    for linked_list in self.arr:
+      current = linked_list.head
+
+      while current != None:
+        if current.data:
+          print(f'{current.data[0]}: {current.data[1]}')
+
+          current = current.next 
+
 
 
