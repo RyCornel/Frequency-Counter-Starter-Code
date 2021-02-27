@@ -43,6 +43,21 @@ class HashTable:
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
+  def insert(self, key, value=1):
+    index = self.hash_func(key)
+    linked_list = self.arr[index]
+
+    current = linked_list.head
+
+    while current != None:
+
+      if current.data[0] == key:
+        current.data[1] += value
+        return
+
+      current = current.next
+    
+    linked_list.append([key, value])
   
 
 
