@@ -14,8 +14,14 @@ class HashTable:
 
   def create_arr(self, size):
      
-    self.arr = []
-    
+    arr = []
+
+    for i in range(size):
+      a_new_list = LinkedList()
+      arr.append(a_new_list)
+
+    return arr 
+
 
 
 
@@ -26,15 +32,33 @@ class HashTable:
 
   def hash_func(self, key):
     
-    pass
+    first_letter = key[0].lower()
+    distance_from_a = ord(first_letter) - ord('a')
+    index = distance_from_a % self.size
+
+    return index
 
 
   # 3️⃣ TODO: Complete the insert method.
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
-  def insert(self, key, value):
-    pass
+  def insert(self, key, value=1):
+    index = self.hash_func(key)
+    linked_list = self.arr[index]
+
+    current = linked_list.head
+
+    while current != None:
+
+      if current.data[0] == key:
+        current.data[1] += value
+        return
+
+      current = current.next
+    
+    linked_list.append([key, value])
+  
 
 
 
@@ -51,7 +75,15 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
+    
+    for linked_list in self.arr:
+      current = linked_list.head
+
+      while current != None:
+        if current.data:
+          print(f'{current.data[0]}: {current.data[1]}')
+
+          current = current.next 
 
 
 
